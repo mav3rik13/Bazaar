@@ -5,45 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.eric.bazaar.createProfile">
+    tools:context="com.example.eric.bazaar.itemPage"
+    android:weightSum="1">
 
-    <EditText
-        android:id="@+id/inpName"
+    <TextView
+        android:id="@+id/Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="User Name" />
+        android:text="TextView" />
 
-    <EditText
-        android:id="@+id/inpPass"
+    <TextView
+        android:id="@+id/seller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password" />
+        android:text="TextView" />
 
-    <EditText
-        android:id="@+id/editText7"
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="TextView"
+        android:layout_weight="0.36" />
+
+    <TextView
+        android:id="@+id/Price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Repeat Password" />
+        android:text="TextView" />
 
     <EditText
-        android:id="@+id/inpEmail"
+        android:id="@+id/Message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.43"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Email" />
+        android:text="Message" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/Send"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:onClick="create"/>
-
+        android:layout_height="84dp"
+        android:onClick="sendMessage"
+        android:text="Send" />
 </LinearLayout>

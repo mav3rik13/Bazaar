@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#282828"
+    android:padding="10dp"
     tools:context="com.example.eric.bazaar.MainActivity">
 
 
@@ -13,14 +15,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="user name" />
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="UserName" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="#ffffff"
+        android:textStyle="bold"
         android:inputType="textPassword"
-        android:hint="password"/>
+        android:hint="Password"/>
 
     <Button
         android:id="@+id/button3"
@@ -37,6 +43,12 @@
         android:text="Create Profile"
         android:onClick="register"
         android:layout_gravity="left"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/pbbar" />
 
 
 </LinearLayout>

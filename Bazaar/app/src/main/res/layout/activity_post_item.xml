@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:textColor="#ffffff"
+        android:hint="Name"
+        android:textColorHint="#ffffff"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
 
@@ -26,18 +26,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:inputType="textPersonName"
-        android:text="Description" />
+        android:hint="Description" />
 
     <EditText
         android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textColor="#ffffff"
-        android:inputType="textPersonName"
-        android:text="Price" />
+        android:textColorHint="#ffffff"
+        android:inputType="number"
+        android:hint="Price" />
+
+    <EditText
+        android:id="@+id/len"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:textColorHint="#ffffff"
+        android:hint="Length in Days" />
 
     <Button
         android:id="@+id/button6"
@@ -52,4 +61,11 @@
         android:layout_height="wrap_content"
         android:text="Buy this Item"
         android:onClick="postBuy"/>
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Auction this item"
+        android:onClick="postBid"/>
 </LinearLayout>

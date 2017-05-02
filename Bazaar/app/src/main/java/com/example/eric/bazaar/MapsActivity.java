@@ -57,6 +57,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     String[] rating;
     String[] id;
     String[] type;
+    String[] end;
+    String[] iId;
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -136,11 +138,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         Intent intent = new Intent(MapsActivity.this, itemPage.class);
 
-        String message= Integer.toString(i);
-        message+=";"+item[i]+":"+type[i];
+        String message= iId[i];
+        message+=";"+item[i];
         message+=";"+desc[i];
         message+=";"+price[i];
-        message+=";"+usr[i]+":"+rating[i];
+        message+=";"+usr[i];
+        message+=";"+rating[i];
+        message+=";"+type[i];
+        message+=";"+end[i];
 
         intent.putExtra("message", message);
         startActivity(intent);
@@ -241,6 +246,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             lat=split[5].split(":");
             lng=split[6].split(":");
             type=split[7].split(":");
+            iId=split[8].split(":");
+            end=split[9].split(":");
 
 
 

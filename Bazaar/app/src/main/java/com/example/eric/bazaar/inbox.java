@@ -33,13 +33,18 @@ public class inbox extends AppCompatActivity {
     private final String USER_AGENT = "Mozilla/5.0";
     ArrayList<uMess> results;
     String[] sender;
+    String[] rating;
+    String[] ratings;
+    String[] srat;
+    String[] rrat;
+    String[] iid;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_items);
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        final StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
 
@@ -67,10 +72,15 @@ public class inbox extends AppCompatActivity {
 
                 Intent intent = new Intent(inbox.this, sendMessage.class);
                 String message=nzt.getID();
-                message+=";"+sender[position];
+                message+=";"+sender[position+1];
                 message+=";"+nzt.gettext();
                 message+=";"+nzt.getitem();
-                //message+=";"+nzt.getUser();
+                message+=";"+rating[position+1];
+                message+=";"+ratings[position+1];
+                message+=";"+iid[position+1];
+                message+=";"+srat[position+1];
+                message+=";"+rrat[position+1];
+                //message+=";"+nzt.getUser;();
 
                 intent.putExtra("message", message);
                 startActivity(intent);
@@ -130,10 +140,14 @@ public class inbox extends AppCompatActivity {
 
 
                 String[] split = par.split(" ");
-                sender=split[0].split(":");
-                String[] mess=split[1].replace('_',' ').split(":");
-                String[] item=split[2].split(":");
-                String[] rating=split[3].split(":");
+                sender=split[0].split(";");
+                String[] mess=split[1].replace('_',' ').split(";");
+                String[] item=split[2].split(";");
+                rating=split[3].split(";");
+                ratings=split[4].split(";");
+                iid=split[5].split(";");
+                rrat=split[6].split(";");
+                srat=split[7].split(";");
 
 
                 for(int i=1;i<item.length;i++) {

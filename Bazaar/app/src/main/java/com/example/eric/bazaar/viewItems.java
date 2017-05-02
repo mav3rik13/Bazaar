@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -40,6 +41,12 @@ public class viewItems extends AppCompatActivity {
     String[] user;
     String[] rating;
     String[] type;
+    String[] iId;
+    String[] mSplit;
+    String search;
+    String[] end;
+    String order;
+    int s=0;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -52,6 +59,15 @@ public class viewItems extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         message = bundle.getString("message");
+        split=message.split(";");
+        message=split[0];
+        order=split[1];
+        if(message.contains(":")){
+            mSplit=message.split(":");
+            search=mSplit[1];
+            message=mSplit[0];
+            s=1;
+        }
 
 
         ArrayList image_details = null;
@@ -77,11 +93,14 @@ public class viewItems extends AppCompatActivity {
                 uItem nzt = (uItem) lv1.getItemAtPosition(position);
 
                 Intent intent = new Intent(viewItems.this, itemPage.class);
-                String message=nzt.getID();
-                message+=";"+nzt.getName()+":"+type[position];
+                String message=iId[Integer.parseInt(nzt.getID())];
+                message+=";"+nzt.getName();
                 message+=";"+nzt.getdesc();
                 message+=";"+nzt.getprice();
-                message+=";"+user[position]+":"+rating[position];
+                message+=";"+user[Integer.parseInt(nzt.getID())];
+                message+=";"+rating[Integer.parseInt(nzt.getID())];
+                message+=";"+type[Integer.parseInt(nzt.getID())];
+                message+=";"+end[Integer.parseInt(nzt.getID())];
 
 
                 intent.putExtra("message", message);
@@ -104,11 +123,12 @@ public class viewItems extends AppCompatActivity {
             DocumentBuilder builder = factory.newDocumentBuilder();
 
         if(!message.equals("All")) {
-            url = "http://cis-linux2.temple.edu/~tud17750/bazaar/getItems.php?type=" + message;
+            url = "http://cis-linux2.temple.edu/~tud17750/bazaar/getItems.php?type=" + message+"&order="+order;
         }
             else{
-            url = "http://cis-linux2.temple.edu/~tud17750/bazaar/getAllItems.php";
+            url = "http://cis-linux2.temple.edu/~tud17750/bazaar/getAllItems.php?order="+order;
         }
+            url= url.replaceAll(" ","%20");
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -153,17 +173,25 @@ public class viewItems extends AppCompatActivity {
                 String[] price=split[3].split(":");
                 rating=split[4].split(":");
                 type=split[7].split(":");
+                iId=split[8].split(":");
+                end=split[9].split(":");
 
                 newsData = new uItem();
 
                 for(int i=1;i<item.length;i++) {
                     newsData = new uItem();
-                    newsData.setName(item[i]);
+                    newsData.setName(item[i]+": "+type[i]+"     Expires"+end[i]);
                     newsData.setdesc(desc[i]);
                     newsData.setprice(price[i]);
                     newsData.setUser(user[i]+": "+rating[i]);
                     newsData.setID(Integer.toString(i));
-                    results.add(newsData);
+                    if(s==0) {
+                        results.add(newsData);
+                    }else{
+                        if(item[i].contains(search)||desc[i].contains(search)||user[i].contains(search)){
+                            results.add(newsData);
+                        }
+                    }
                 }
 
             }

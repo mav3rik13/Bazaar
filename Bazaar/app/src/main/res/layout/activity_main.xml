@@ -15,15 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
+        android:textColorHint="#ffffff"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        android:text="UserName" />
+        android:hint="UserName" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
         android:textStyle="bold"
         android:inputType="textPassword"
         android:hint="Password"/>

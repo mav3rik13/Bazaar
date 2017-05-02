@@ -5,57 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.eric.bazaar.sendMessage"
+    tools:context="com.example.eric.bazaar.itemPage"
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/Item"
+        android:id="@+id/Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/sender"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:text="TextView"
-        android:layout_weight="0.08" />
-
-    <TextView
-        android:id="@+id/mess"
+        android:id="@+id/seller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
         android:text="TextView"
-        android:layout_weight="0.33" />
+        android:layout_weight="0.36" />
+
+    <TextView
+        android:id="@+id/Price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
     <EditText
-        android:id="@+id/text"
+        android:id="@+id/Message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Reply"
-        android:layout_weight="0.38" />
+        android:inputType="number"
+        android:hint="Bid" />
 
     <Button
-        android:id="@+id/send"
+        android:id="@+id/Send"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:onClick="bid"
+        android:text="Send" />
+
+    <Button
+        android:id="@+id/button16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send"
-        android:onClick="send"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="Rate User"
-        android:layout_weight="0.13" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:stepSize="1"
-        android:rating="0"/>
+        android:text="Remove" />
 </LinearLayout>

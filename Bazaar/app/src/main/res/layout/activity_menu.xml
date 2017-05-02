@@ -58,4 +58,12 @@
         android:onClick="map"
         android:layout_weight="0.21" />
 
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Items"
+        android:layout_weight="0.15"
+        android:onClick="myItems"/>
+
 </LinearLayout>

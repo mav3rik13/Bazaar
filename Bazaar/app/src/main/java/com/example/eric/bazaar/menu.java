@@ -54,4 +54,10 @@ public class menu extends AppCompatActivity implements OnMapReadyCallback{
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
+
+    public void myItems(View view){
+        Intent intent = new Intent(this, viewItems.class);
+        intent.putExtra("message", "All:"+((MyApplication) this.getApplication()).getuName());
+        startActivity(intent);
+    }
 }

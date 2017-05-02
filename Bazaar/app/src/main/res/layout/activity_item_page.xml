@@ -40,7 +40,7 @@
         android:layout_weight="0.43"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Message" />
+        android:hint="Message" />
 
     <Button
         android:id="@+id/Send"
@@ -48,4 +48,11 @@
         android:layout_height="84dp"
         android:onClick="sendMessage"
         android:text="Send" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="remove"
+        android:text="Remove" />
 </LinearLayout>
